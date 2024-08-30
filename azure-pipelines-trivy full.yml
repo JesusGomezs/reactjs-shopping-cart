@@ -40,6 +40,6 @@ stages:
             version: 'latest'
             debug: true
             loginDockerConfig: true
-            image: '$(ACR_NAME)/$(WEBAPP_NAME):latest'
+            image: '$(ACR_NAMENJ)/$(WEBAPP_NAMENJ):latest'
             exitCode: '0'
  
