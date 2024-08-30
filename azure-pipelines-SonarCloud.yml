@@ -33,11 +33,11 @@ stages:
         - task: SonarCloudPrepare@1
           inputs:
             SonarCloud: 'SonarCloud_Conn'
-            organization: 'JesusGomezs'
+            organization: 'jesusgomezs'
             scannerMode: 'CLI'
             configMode: 'manual'
             cliProjectKey: 'JesusGomezs_reactjs-shopping-cart'
-            cliProjectName: 'reactjs-shopping-cart'
+            cliProjectName: 'JesusGomezs_reactjs-shopping-cart'
             cliSources: '.'
         - task: SonarCloudAnalyze@1
         - task: SonarCloudPublish@1
