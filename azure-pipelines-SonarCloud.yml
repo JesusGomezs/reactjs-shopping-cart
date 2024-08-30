@@ -32,7 +32,7 @@ stages:
           fetchDepth: 0
         - task: SonarCloudPrepare@1
           inputs:
-            SonarCloud: 'SonarCloud_JesusGomezs'
+            SonarCloud: 'SonarCloud_Conn'
             organization: 'JesusGomezs'
             scannerMode: 'CLI'
             configMode: 'manual'
