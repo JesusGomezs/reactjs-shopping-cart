@@ -31,7 +31,7 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: $(WEBAPP_NAME)
+        repository: $(WEBAPP_NAMENJ)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(ACR_Conn)
         tags: |
