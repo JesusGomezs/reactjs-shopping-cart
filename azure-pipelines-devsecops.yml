@@ -51,11 +51,11 @@ stages:
           fetchDepth: 0
         - task: SonarCloudPrepare@1
           inputs:
-            SonarCloud: 'SonarCloud_Malevarro'
-            organization: 'malevarro'
+            SonarCloud: 'servicioCloud'
+            organization: 'jesusgomezs'
             scannerMode: 'CLI'
             configMode: 'manual'
-            cliProjectKey: 'malevarro_reactjs-shopping-cart'
+            cliProjectKey: 'JesusGomezs_reactjs-shopping-cart'
             cliProjectName: 'reactjs-shopping-cart'
             cliSources: '.'
         - task: SonarCloudAnalyze@1
@@ -109,7 +109,7 @@ stages:
         displayName: Build and push an image to container registry
         inputs:
           command: buildAndPush
-          repository: $(WEBAPP_NAME)
+          repository: $(WEBAPP_NAMENJ)
           dockerfile: $(dockerfilePath)
           containerRegistry: $(ACR_Conn)
           tags: |
@@ -136,7 +136,7 @@ stages:
           inputs:
             serviceConnectionEndpoint: $(Snyk_Conn)
             testType: 'container'
-            dockerImageName: $(ACR_NAME)/$(WEBAPP_NAME):latest
+            dockerImageName: $(ACR_NAMENJ)/$(WEBAPP_NAMENJ):latest
             dockerfilePath: '$(dockerfilePath)'
             monitorWhen: 'always'
             failOnIssues: false
@@ -157,7 +157,7 @@ stages:
             version: 'latest'
             debug: true
             loginDockerConfig: true
-            image: '$(ACR_NAME)/$(WEBAPP_NAME):latest'
+            image: '$(ACR_NAMENJ)/$(WEBAPP_NAMENJ):latest'
             exitCode: '0'
 
 #Publicando la aplicacion en Azure
@@ -176,9 +176,9 @@ stages:
           ConnectionType: 'AzureRM'
           azureSubscription: $(Azure_Conn)
           appType: 'webAppContainer'
-          WebAppName: $(WEBAPP_NAME)
-          DockerNamespace: '$(ACR_NAME)'
-          DockerRepository: '$(WEBAPP_NAME)'
+          WebAppName: $(WEBAPP_NAMENJ)
+          DockerNamespace: '$(ACR_NAMENJ)'
+          DockerRepository: '$(WEBAPP_NAMENJ)'
           DockerImageTag: '$(tag)'
           AppSettings: '-port 3000'
       - task: AzureAppServiceManage@0
@@ -186,4 +186,4 @@ stages:
         inputs:
           azureSubscription: $(Azure_Conn)
           Action: 'Restart Azure App Service'
-          WebAppName: $(WEBAPP_NAME)
+          WebAppName: $(WEBAPP_NAMENJ)
