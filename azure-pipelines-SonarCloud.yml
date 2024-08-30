@@ -37,7 +37,7 @@ stages:
             scannerMode: 'CLI'
             configMode: 'manual'
             cliProjectKey: 'JesusGomezs_reactjs-shopping-cart'
-            cliProjectName: 'JesusGomezs_reactjs-shopping-cart'
+            cliProjectName: 'reactjs-shopping-cart'
             cliSources: '.'
         - task: SonarCloudAnalyze@1
         - task: SonarCloudPublish@1
